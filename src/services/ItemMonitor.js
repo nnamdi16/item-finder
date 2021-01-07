@@ -1,10 +1,10 @@
-import axios from 'axios'
+const  axios = require('axios');
 
 /**
  * Item class
  * @class
  */
-class ItemService {
+class ItemMonitor {
   /**
    * constructor
    * 
@@ -64,4 +64,4 @@ class ItemService {
    }
 }
 
-export default ItemService;
+module.exports = ItemMonitor;
