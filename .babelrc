@@ -1,4 +1,25 @@
 {
-  "presets": ["@babel/preset-env"],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  "presets": [
+    [
+    "@babel/preset-env",{
+      "targets": {"node": "current"}
+    }
+  ]
+],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-runtime", "istanbul"]
+    }
+  },
+  "plugins": [
+    [
+      "babel-plugin-module-resolver",
+      {
+        "root": ["./server"],
+        "alias": {
+          
+        }
+      }
+    ]
+  ]
 }
