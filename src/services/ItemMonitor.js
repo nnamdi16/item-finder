@@ -40,15 +40,16 @@ class ItemMonitor {
        console.log(marketplace, language, searchTerms);
         const baseUrl = `https://api.nike.com/search/visual_searches/v1?marketplace=${marketplace}&language=${language}&searchTerms=${searchTerms}`;
         const response = await axios.get(baseUrl);
-        const {data} = response;
+        const {data, headers} = response;
+        const cookies = headers["set-cookie"];
         if (data.name === "Error") {
           return {
             error: true,
             message :`We could not find anything for ${searchTerms}`
           }
         }
-      console.log(data);
-      return data;
+      console.log({data,cookies});
+      return {data,cookies};
      } catch (error) {
        return error;
      }
